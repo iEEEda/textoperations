@@ -6,14 +6,15 @@ import kz.eduard.task4.entity.Type;
 
 public class SentenceParser extends AbstractParser {
     private AbstractParser next = new LexemeParser();
+    private final static String LEXEME_REGEX = "[ *]";
 
     @Override
-    public TextComponent splitText(String paragraph) {
-        Composite paragraphComposite = new Composite(Type.PARAGRAPH);
-        String[] lexemes = paragraph.split("[ *]");
+    public TextComponent splitText(String sentence) {
+        Composite sentenceComposite = new Composite(Type.SENTENCE);
+        String[] lexemes = sentence.trim().split(LEXEME_REGEX);
         for (int i = 0; i < lexemes.length; i++) {
-            paragraphComposite.add(next.splitText(lexemes[i]));
+            sentenceComposite.add(next.splitText(lexemes[i]));
         }
-        return paragraphComposite;
+        return sentenceComposite;
     }
 }

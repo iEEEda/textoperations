@@ -10,5 +10,7 @@ public interface TextComponent {
 
     int size();
 
+    String print();
+
     // can add some operation that will be called on every TextComponent
 }

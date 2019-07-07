@@ -1,9 +1,9 @@
 package kz.eduard.task4.entity;
 
 public class Leaf implements TextComponent {
-    private char symbol;
+    private String symbol;
 
-    public Leaf(char symbol){
+    public Leaf(String symbol){
         this.symbol = symbol;
     }
 
@@ -21,5 +21,10 @@ public class Leaf implements TextComponent {
     @Override
     public int size() {
         return 1;
+    }
+
+    @Override
+    public String print() {
+        return symbol;
     }
 }
